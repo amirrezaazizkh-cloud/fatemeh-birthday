@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تولدت مبارک فاطمه 🎀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background: linear-gradient(135deg, #fff0f7, #f3e8ff, #ffe4f1);
+  color: #713b78;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.background-hearts span {
+  position: fixed;
+  bottom: -50px;
+  font-size: 25px;
+  opacity: .45;
+  animation: floatUp 12s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  20% { opacity: .5; }
+  100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+.container {
+  width: min(92%, 850px);
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  padding: 65px 15px 30px;
+}
+
+.small-title {
+  background: white;
+  display: inline-block;
+  padding: 9px 22px;
+  border-radius: 30px;
+  color: #d65b9e;
+  box-shadow: 0 5px 20px #e7b5d477;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: clamp(38px, 9vw, 65px);
+  margin: 22px 0 10px;
+  color: #bd559d;
+  text-shadow: 2px 4px 12px #e9a9d5;
+}
+
+.subtitle {
+  font-size: 17px;
+  color: #8c6396;
+  line-height: 2;
+}
+
+.flower {
+  font-size: 45px;
+  margin: 18px 0;
+  animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%,100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+
+.card {
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(12px);
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 30px 20px;
+  margin: 25px auto;
+  box-shadow: 0 15px 45px #c987c633;
+}
+
+.gift {
+  font-size: 105px;
+  cursor: pointer;
+  display: inline-block;
+  transition: .4s;
+  filter: drop-shadow(0 12px 12px #d98acb66);
+}
+
+.gift:hover {
+  transform: scale(1.12) rotate(-8deg);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: linear-gradient(135deg, #ed82b9, #a77be9);
+  color: white;
+  padding: 14px 30px;
+  border-radius: 35px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px #d68acb66;
+  transition: .3s;
+  margin: 12px 5px;
+}
+
+button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px #d68acb88;
+}
+
+#surprise {
+  display: none;
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px) scale(.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.message {
+  font-size: 19px;
+  line-height: 2.4;
+  color: #81558c;
+  margin: 18px 0;
+}
+
+.message strong {
+  color: #d45b9e;
+}
+
+.cake {
+  font-size: 100px;
+  margin: 15px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.candles {
+  font-size: 25px;
+  margin: 5px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.gallery div {
+  background: linear-gradient(145deg, #ffe0f0, #eadcff);
+  border-radius: 20px;
+  padding: 22px 5px;
+  font-size: 35px;
+  box-shadow: 0 5px 15px #d6a3d455;
+}
+
+.gallery p {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #9c629b;
+}
+
+.footer {
+  padding: 35px 10px 45px;
+  color: #a477a7;
+  font-size: 13px;
+}
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 10;
+  pointer-events: none;
+  animation: fall 3.5s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@media(max-width:500px) {
+  .hero { padding-top: 45px; }
+  .card { padding: 25px 14px; }
+  .message { font-size: 16px; }
+  .gallery div { font-size: 28px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-hearts" id="hearts"></div>
+
+<main class="container">
+
+  <header class="hero">
+    <div class="small-title">یک سورپرایز کوچولو برای یک آدم عزیز 🎀</div>
+
+    <div class="flower">🌷🌸🌷</div>
+
+    <h1>تولدت مبارک فاطمه!</h1>
+
+    <p class="subtitle">
+      امروز روز توئه؛ پس آماده یک سورپرایز قشنگ باش! 💗
+    </p>
+  </header>
+
+  <section class="card">
+    <h2>🎁 یه هدیه برات دارم!</h2>
+    <p style="margin:15px 0;color:#a078a7">
+      روی جعبه کلیک کن تا سورپرایزت رو ببینی
+    </p>
+
+    <div class="gift" id="gift" onclick="openGift()">🎁</div>
+
+    <br>
+    <button onclick="openGift()">باز کردن هدیه 💝</button>
+  </section>
+
+  <section class="card" id="surprise">
+
+    <h2 style="color:#d45b9e;font-size:27px">
+      سورپرایز شدی فاطمه؟! 🥹💗
+    </h2>
+
+    <div class="cake">🎂</div>
+    <div class="candles">🕯️ 🕯️ 🕯️</div>
+
+    <div class="message">
+      فاطمه جان! 🌸<br>
+      امیدوارم همیشه دلت شاد باشه،<br>
+      لبخند از روی لبت کنار نره<br>
+      و به تمام آرزوهای قشنگت برسی. ✨<br>
+      <strong>تولدت مبارک! 🎀</strong>
+    </div>
+
+    <div class="gallery">
+      <div>🌹<p>کلی شادی</p></div>
+      <div>💖<p>کلی عشق</p></div>
+      <div>🦋<p>کلی آرزو</p></div>
+    </div>
+
+    <p style="margin-top:25px;font-size:18px;color:#d45b9e">
+      تو لایق قشنگ‌ترین اتفاق‌های دنیایی! 💕
+    </p>
+
+    <button onclick="celebrate()">دوباره جشن بگیریم! 🎉</button>
+
+  </section>
+
+  <footer class="footer">
+    ساخته شده با کلی عشق و لبخند ❤️<br>
+    برای فاطمه، با آرزوی بهترین‌ها 🌷
+  </footer>
+
+</main>
+
+<script>
+let opened = false;
+
+function openGift() {
+  const surprise = document.getElementById('surprise');
+  const gift = document.getElementById('gift');
+
+  if (!opened) {
+    surprise.style.display = 'block';
+    gift.innerHTML = '💝';
+    opened = true;
+    celebrate();
+
+    setTimeout(() => {
+      surprise.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }, 150);
+  } else {
+    celebrate();
+  }
+}
+
+function celebrate() {
+  const emojis = ['💗','🌸','🎀','✨','💜','🌷','🎉'];
+
+  for (let i = 0; i < 65; i++) {
+    const item = document.createElement('div');
+    item.className = 'confetti';
+    item.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    item.style.left = Math.random() * 100 + 'vw';
+    item.style.fontSize = (15 + Math.random() * 20) + 'px';
+    item.style.animationDuration = (2 + Math.random() * 3) + 's';
+    document.body.appendChild(item);
+
+    setTimeout(() => item.remove(), 5000);
+  }
+}
+
+const heartBox = document.getElementById('hearts');
+const hearts = ['💗','💕','🌸','💜','✨'];
+
+for (let i = 0; i < 18; i++) {
+  const heart = document.createElement('span');
+  heart.innerHTML = hearts[i % hearts.length];
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (8 + Math.random() * 12) + 's';
+  heart.style.animationDelay = (Math.random() * 12) + 's';
+  heartBox.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
