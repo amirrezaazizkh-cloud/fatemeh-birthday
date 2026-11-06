@@ -205,6 +205,14 @@ button:hover {
   }
 }
 
+/* وضعیت پخش آهنگ */
+.music-status {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #a477a7;
+}
+
 @media(max-width:500px) {
   .hero { padding-top: 45px; }
   .card { padding: 25px 14px; }
@@ -215,6 +223,11 @@ button:hover {
 </head>
 
 <body>
+
+<!-- آهنگ تولد -->
+<audio id="birthdayMusic" autoplay loop preload="auto">
+  <source src="birthday.mp3" type="audio/mpeg">
+</audio>
 
 <div class="background-hearts" id="hearts"></div>
 
@@ -242,6 +255,10 @@ button:hover {
 
     <br>
     <button onclick="openGift()">باز کردن هدیه 💝</button>
+
+    <div class="music-status" id="musicStatus">
+      🎵 آهنگ تولدت در حال آماده‌سازی است...
+    </div>
   </section>
 
   <section class="card" id="surprise">
@@ -285,6 +302,40 @@ button:hover {
 <script>
 let opened = false;
 
+const music = document.getElementById('birthdayMusic');
+const musicStatus = document.getElementById('musicStatus');
+
+music.volume = 0.8;
+
+let musicStarted = false;
+
+function startMusic() {
+  if (musicStarted) return;
+
+  music.play()
+    .then(() => {
+      musicStarted = true;
+      musicStatus.innerHTML = '🎵 در حال پخش آهنگ تولد ❤️';
+    })
+    .catch(() => {
+      musicStatus.innerHTML = '🎵 برای پخش آهنگ صفحه را لمس کن';
+    });
+}
+
+// تلاش برای پخش خودکار هنگام ورود
+window.addEventListener('load', () => {
+  startMusic();
+});
+
+// اگر مرورگر پخش خودکار را مسدود کرد، با اولین لمس پخش شود
+document.addEventListener('pointerdown', startMusic, {
+  once: true
+});
+
+document.addEventListener('keydown', startMusic, {
+  once: true
+});
+
 function openGift() {
   const surprise = document.getElementById('surprise');
   const gift = document.getElementById('gift');
@@ -293,6 +344,7 @@ function openGift() {
     surprise.style.display = 'block';
     gift.innerHTML = '💝';
     opened = true;
+
     celebrate();
 
     setTimeout(() => {
@@ -311,26 +363,34 @@ function celebrate() {
 
   for (let i = 0; i < 65; i++) {
     const item = document.createElement('div');
+
     item.className = 'confetti';
-    item.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    item.innerHTML = emojis[
+      Math.floor(Math.random() * emojis.length)
+    ];
+
     item.style.left = Math.random() * 100 + 'vw';
     item.style.fontSize = (15 + Math.random() * 20) + 'px';
     item.style.animationDuration = (2 + Math.random() * 3) + 's';
+
     document.body.appendChild(item);
 
     setTimeout(() => item.remove(), 5000);
   }
 }
 
+// قلب‌های متحرک
 const heartBox = document.getElementById('hearts');
 const hearts = ['💗','💕','🌸','💜','✨'];
 
 for (let i = 0; i < 18; i++) {
   const heart = document.createElement('span');
+
   heart.innerHTML = hearts[i % hearts.length];
   heart.style.left = Math.random() * 100 + 'vw';
   heart.style.animationDuration = (8 + Math.random() * 12) + 's';
   heart.style.animationDelay = (Math.random() * 12) + 's';
+
   heartBox.appendChild(heart);
 }
 </script>
