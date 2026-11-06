@@ -205,7 +205,6 @@ button:hover {
   }
 }
 
-/* وضعیت پخش آهنگ */
 .music-status {
   display: inline-block;
   margin-top: 15px;
@@ -224,16 +223,19 @@ button:hover {
 
 <body>
 
-<!-- آهنگ تولد -->
+<!-- آهنگ تولد فاطمه -->
 <audio id="birthdayMusic" autoplay loop preload="auto">
-  <source src="Andy%20-%20Tavalod.mp3" type="audio/mpeg">
+  <source src="./Andy%20-%20Tavalod.mp3" type="audio/mpeg">
+</audio>
 
 <div class="background-hearts" id="hearts"></div>
 
 <main class="container">
 
   <header class="hero">
-    <div class="small-title">یک سورپرایز کوچولو برای یک آدم عزیز 🎀</div>
+    <div class="small-title">
+      یک سورپرایز کوچولو برای یک آدم عزیز 🎀
+    </div>
 
     <div class="flower">🌷🌸🌷</div>
 
@@ -246,6 +248,7 @@ button:hover {
 
   <section class="card">
     <h2>🎁 یه هدیه برات دارم!</h2>
+
     <p style="margin:15px 0;color:#a078a7">
       روی جعبه کلیک کن تا سورپرایزت رو ببینی
     </p>
@@ -253,7 +256,10 @@ button:hover {
     <div class="gift" id="gift" onclick="openGift()">🎁</div>
 
     <br>
-    <button onclick="openGift()">باز کردن هدیه 💝</button>
+
+    <button onclick="openGift()">
+      باز کردن هدیه 💝
+    </button>
 
     <div class="music-status" id="musicStatus">
       🎵 آهنگ تولدت در حال آماده‌سازی است...
@@ -267,6 +273,7 @@ button:hover {
     </h2>
 
     <div class="cake">🎂</div>
+
     <div class="candles">🕯️ 🕯️ 🕯️</div>
 
     <div class="message">
@@ -287,7 +294,9 @@ button:hover {
       تو لایق قشنگ‌ترین اتفاق‌های دنیایی! 💕
     </p>
 
-    <button onclick="celebrate()">دوباره جشن بگیریم! 🎉</button>
+    <button onclick="celebrate()">
+      دوباره جشن بگیریم! 🎉
+    </button>
 
   </section>
 
@@ -299,8 +308,8 @@ button:hover {
 </main>
 
 <script>
-let opened = false;
 
+// سیستم پخش آهنگ
 const music = document.getElementById('birthdayMusic');
 const musicStatus = document.getElementById('musicStatus');
 
@@ -309,24 +318,24 @@ music.volume = 0.8;
 let musicStarted = false;
 
 function startMusic() {
+
   if (musicStarted) return;
 
   music.play()
     .then(() => {
       musicStarted = true;
-      musicStatus.innerHTML = '🎵 در حال پخش آهنگ تولد ❤️';
+      musicStatus.innerHTML = '🎵 آهنگ تولد در حال پخش است ❤️';
     })
     .catch(() => {
-      musicStatus.innerHTML = '🎵 برای پخش آهنگ صفحه را لمس کن';
+      musicStatus.innerHTML = '🎵 برای پخش آهنگ، صفحه را لمس کن';
     });
+
 }
 
-// تلاش برای پخش خودکار هنگام ورود
-window.addEventListener('load', () => {
-  startMusic();
-});
+// تلاش برای پخش خودکار
+window.addEventListener('load', startMusic);
 
-// اگر مرورگر پخش خودکار را مسدود کرد، با اولین لمس پخش شود
+// شروع آهنگ با اولین لمس کاربر
 document.addEventListener('pointerdown', startMusic, {
   once: true
 });
@@ -335,13 +344,21 @@ document.addEventListener('keydown', startMusic, {
   once: true
 });
 
+// باز کردن هدیه
+let opened = false;
+
 function openGift() {
+
+  startMusic();
+
   const surprise = document.getElementById('surprise');
   const gift = document.getElementById('gift');
 
   if (!opened) {
+
     surprise.style.display = 'block';
     gift.innerHTML = '💝';
+
     opened = true;
 
     celebrate();
@@ -352,25 +369,34 @@ function openGift() {
         block: 'start'
       });
     }, 150);
+
   } else {
     celebrate();
   }
 }
 
+// جشن و کاغذهای رنگی
 function celebrate() {
+
   const emojis = ['💗','🌸','🎀','✨','💜','🌷','🎉'];
 
   for (let i = 0; i < 65; i++) {
+
     const item = document.createElement('div');
 
     item.className = 'confetti';
+
     item.innerHTML = emojis[
       Math.floor(Math.random() * emojis.length)
     ];
 
     item.style.left = Math.random() * 100 + 'vw';
-    item.style.fontSize = (15 + Math.random() * 20) + 'px';
-    item.style.animationDuration = (2 + Math.random() * 3) + 's';
+
+    item.style.fontSize =
+      (15 + Math.random() * 20) + 'px';
+
+    item.style.animationDuration =
+      (2 + Math.random() * 3) + 's';
 
     document.body.appendChild(item);
 
@@ -380,18 +406,26 @@ function celebrate() {
 
 // قلب‌های متحرک
 const heartBox = document.getElementById('hearts');
+
 const hearts = ['💗','💕','🌸','💜','✨'];
 
 for (let i = 0; i < 18; i++) {
+
   const heart = document.createElement('span');
 
   heart.innerHTML = hearts[i % hearts.length];
+
   heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.animationDuration = (8 + Math.random() * 12) + 's';
-  heart.style.animationDelay = (Math.random() * 12) + 's';
+
+  heart.style.animationDuration =
+    (8 + Math.random() * 12) + 's';
+
+  heart.style.animationDelay =
+    (Math.random() * 12) + 's';
 
   heartBox.appendChild(heart);
 }
+
 </script>
 
 </body>
